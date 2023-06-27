@@ -1,0 +1,7 @@
+With cte2 as(
+Select CustomerID, ContactName, City, Region, isnull(fax, 'No Fax Specified') as Fax
+from Customers
+)
+
+select * from cte2
+where Fax = 'No Fax Specified'
