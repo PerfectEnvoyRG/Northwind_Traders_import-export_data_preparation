@@ -1,0 +1,9 @@
+select * ,
+case 
+when UnitsOnOrder > 50 and UnitsInStock < 20then 'Restock Now' 
+when (UnitsOnOrder between 30 and 40) and UnitsInStock < 50 then 'Restock Next Week' 
+when UnitsOnOrder < 30 and UnitsInStock < 50 then 'Restock Next Month' 
+when UnitsOnOrder < 5 and UnitsInStock >= 50 then 'Restock in 6 months' 
+else 'Ask Manger' 
+end as WhenToRestock
+from Products
