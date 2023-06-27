@@ -1,0 +1,9 @@
+WITH cte1 as (
+select * ,
+ROW_NUMBER() OVER (partition by QuantityPerUnit order by QuantityPerUnit) as rn
+from Products
+)
+
+select * from cte1 
+where rn = 1
+order by ProductID
